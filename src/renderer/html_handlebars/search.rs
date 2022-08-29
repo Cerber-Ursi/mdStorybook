@@ -178,6 +178,7 @@ fn render_item(
             Event::FootnoteReference(name) => {
                 let len = footnote_numbers.len() + 1;
                 let number = footnote_numbers.entry(name).or_insert(len);
+                #[allow(clippy::format_push_string)]
                 body.push_str(&format!(" [{}] ", number));
             }
             Event::TaskListMarker(_checked) => {}
